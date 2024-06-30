@@ -1,0 +1,17 @@
+<div class="basket-container">
+    <h2>Your Basket</h2>
+    <div *ngIf="basketItems.length === 0">
+      <p>Your basket is empty.</p>
+    </div>
+    <div class="basket-items">
+      <div *ngFor="let item of basketItems" class="basket-item">
+        <h3>{{ item.itemName }}</h3>
+        <p>Type: {{ item.type }}</p>
+        <p>Sizes: {{ item.sizes }}</p>
+        <p>Manufacturer: {{ item.manufacturer }}</p>
+        <p>Price: {{ item.price | currency:'RSD' }}</p>
+        <button class="button" (click)="removeFromBasket(item)">Remove from Basket</button>
+      </div>
+    </div>
+  </div>
+  

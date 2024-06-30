@@ -1,0 +1,35 @@
+<div class="catalog-container">
+  <h2>Clothing Catalog</h2>
+  <div *ngIf="isAdmin()" class="admin-controls">
+    <button (click)="toggleAddProductForm()">Add New Product</button>
+  </div>
+  <div *ngIf="showAddProductForm" class="add-product-form">
+    <input [(ngModel)]="editableProduct.itemName" placeholder="Product Name">
+    <input [(ngModel)]="editableProduct.type" placeholder="Product Type">
+    <input [(ngModel)]="editableProduct.sizes" placeholder="Size">
+    <input [(ngModel)]="editableProduct.manufacturer" placeholder="Manufacturer">
+    <input [(ngModel)]="editableProduct.createdAt" type="date">
+    <input [(ngModel)]="editableProduct.price" placeholder="Price">
+    <button (click)="saveProduct()">Save Product</button>
+    <button (click)="toggleAddProductForm()">Cancel</button>
+  </div>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchName" (ngModelChange)="filterItems()" placeholder="Search by name..." class="search-input">
+    <input type="text" [(ngModel)]="searchType" (ngModelChange)="filterItems()" placeholder="Search by type..." class="search-input">
+  </div>
+  <div class="items-container">
+    <div *ngFor="let item of filteredItems" class="item-card">
+      <h3>{{ item.itemName }}</h3>
+      <img [src]="item.colors[0].imageSrc" alt="Clothing Image">
+      <p>Type: {{ item.type }}</p>
+      <p>Sizes: {{ item.sizes && item.sizes.length > 0 ? item.sizes : 'Regular' }}</p>
+      <p>Manufacturer: {{ item.manufacturer }}</p>
+      <p>Product Date: {{ item.createdAt | date }}</p>
+      <p>Price: {{ item.price | currency:'RSD' }}</p>
+      <button class="button" (click)="navigateToProduct(item.id!)">View Details</button>
+      <button class="button" (click)="addToBasket(item)">Add to Basket</button>
+      <button *ngIf="isAdmin() && item.id !== undefined" class="button" (click)="toggleAddProductForm(item)">Edit</button>
+      <button *ngIf="isAdmin() && item.id !== undefined" class="button" (click)="deleteProduct(item.id)">Delete</button>
+    </div>
+  </div>
+</div>

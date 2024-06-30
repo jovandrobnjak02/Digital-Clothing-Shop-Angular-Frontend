@@ -1,0 +1,18 @@
+<div class="app-component">
+    <header class="header" *ngIf="authService.isAuthenticated()">
+        <img routerLink="/home" src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbuFT_9bg8NL3HHzIkr-PFoBJghVQIM7FHHV-qoSMvwJBSWLumB8jAwpKrLuhm-W1LL-HgyLptwlnJoVM2biIz-EGlIdMGWmpM=s1600-rw-v1" alt="Suit Up Logo" class="logo">
+        <nav>
+            <a routerLink="/catalog"><i class="fa fa golden-link"></i> Suit Up!</a>
+            <a routerLink="/basket"><i class="fa fa-shopping-cart golden-link"></i> Cart</a>
+            <a routerLink="/profile"><i class="fa fa-user golden-link"></i> Profile</a>
+            <button (click)="authService.logout()">Logout</button>
+        </nav>
+    </header>
+
+    <router-outlet></router-outlet>
+
+    <footer class="footer" *ngIf="authService.isAuthenticated()">
+        <p *ngIf="isAdmin()">Legen...wait for it!</p>
+        <p *ngIf="!isAdmin()">Ted, Suit Up!</p>
+    </footer>  
+</div>

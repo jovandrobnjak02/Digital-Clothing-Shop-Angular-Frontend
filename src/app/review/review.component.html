@@ -1,0 +1,28 @@
+<div *ngIf="product" style="color:gold">
+    <h2>{{ product.itemName }}</h2>
+    <p>Price: {{ product.price | currency:'RSD' }}</p>
+    <p>Manufacturer: {{ product.manufacturer }}</p>
+    <p>Type: {{ product.type }}</p>
+  
+    <div>
+      <img *ngFor="let color of product.colors" [src]="color.imageSrc" [alt]="color.color" width="100">
+    </div>
+    <div>
+      Available Sizes: {{ product.sizes }}
+    </div>
+  
+    <button (click)="addToBasket(product)">Add to Cart</button>
+  
+    <h3>Reviews</h3>
+    <ul>
+      <li *ngFor="let review of reviews">
+        Comment: {{ review.comment }}, Grade: {{ review.grade }}
+      </li>
+    </ul>
+  
+    <h3>Add Review</h3>
+    <textarea [(ngModel)]="reviewText" placeholder="Write a comment..."></textarea>
+    <input type="number" [(ngModel)]="reviewGrade" placeholder="Grade" min="1" max="10">
+    <button (click)="addReview()">Submit Review</button>
+  </div>
+  

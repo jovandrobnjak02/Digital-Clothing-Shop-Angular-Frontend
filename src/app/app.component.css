@@ -1,0 +1,62 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: gold;
+  height: auto;
+}
+
+
+body {
+  padding-bottom: 60px;
+  background-color: #000;
+  color: gold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid gold;
+  background-color: #1a1a1a;
+}
+
+.logo {
+  width: 100px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a, nav button {
+  margin-left: 10px;
+  text-decoration: none;
+  color: gold;
+  display: flex;
+  align-items: center;
+}
+
+nav button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: gold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #555;
+}
+
+.golden-link {
+  color: gold;
+}

@@ -1,0 +1,38 @@
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: gold;
+}
+
+body, p {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  background-color: #000;
+}
+
+.home-container {
+  width: 100%;
+  margin: 0;
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+.main-content {
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  margin-top: 150px;
+  color: gold;
+}
+
+span {
+  display: inline-block;
+  animation: rainbow-animation 6s linear infinite;
+}
+
+
+@media (max-width: 768px) {
+  .header, .main-content {
+    padding: 10px;
+  }
+}
